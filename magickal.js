@@ -12,7 +12,9 @@
         },
 
         __run : function (cmd, args, callback) {
-            sys.puts("running command: " + cmd + " - " + args.join(" "));
+            args.unshift(cmd);
+            cmd = "gm";
+            sys.puts("running command: " + cmd + "  " + args.join(" "));
             if (this.available > 0) {
                 this.available -= 1
                 var p = process.createChildProcess(cmd, args);
